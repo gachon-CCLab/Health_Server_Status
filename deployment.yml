@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: server-status-informer
-          image: docker.io/kumass2020/fl-server-st-repl:1.0
+          image: docker.io/hoo0681/gitclone_python:0.1
           resources:
             limits:
               memory: "2Gi"
