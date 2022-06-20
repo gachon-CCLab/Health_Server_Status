@@ -27,6 +27,9 @@ def read_root():
 
 @app.get("/FLSe/info")
 def read_status():
+    print('Server_status: ')
+    print(FLSe)
+    print()
     return {"Server_Status": FLSe}
 
 
