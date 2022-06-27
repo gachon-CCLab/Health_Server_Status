@@ -61,14 +61,12 @@ def async_dec(awaitable_func):
 
                 logging.debug(str(awaitable_func.__name__) + '_함수 종료')
 
-                logging.info('Server_status: ')
-                logging.info(f'{FLSe}')
+                logging.info(f'Server_status: {FLSe}')
                 print()
             except Exception as e:
                 # logging.info('[E]' , awaitable_func.__name__, e)
                 logging.error('[E]' + str(awaitable_func.__name__) + str(e))
-                logging.info('[E] Server_status: ')
-                logging.info(f'{FLSe}')
+                logging.info(f'[E] Server_status: {FLSe}')
                 print()
             await asyncio.sleep(1)
 
