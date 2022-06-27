@@ -66,11 +66,12 @@ def async_dec(awaitable_func):
             except Exception as e:
                 # logging.info('[E]' , awaitable_func.__name__, e)
                 logging.error('[E]' + str(awaitable_func.__name__) + str(e))
+                FLSe.FLSeReady=False
                 logging.info(f'[E] Server_status: {FLSe}')
                 print()
             await asyncio.sleep(1)
-
-    return keeping_state
+            
+    return keeping_state, FLSe
 
 @async_dec
 async def fl_server_check():
