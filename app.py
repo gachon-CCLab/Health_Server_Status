@@ -74,6 +74,7 @@ def async_dec(awaitable_func):
 
 @async_dec
 async def fl_server_check():
+    global FLSe
     res = requests.get('http://10.152.183.249:8080')
     if res.status_code != 200:
         FLSe.FLSeReady=False
