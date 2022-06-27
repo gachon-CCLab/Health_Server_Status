@@ -26,9 +26,6 @@ FLSe = ServerStatus()
 @app.get("/FLSe/info")
 def read_status():
     global FLSe
-    print('Server_status: ')
-    print(FLSe)
-    print()
     return {"Server_Status": FLSe}
 
 
@@ -55,16 +52,26 @@ def startup():
 
 def async_dec(awaitable_func):
     async def keeping_state():
+        global FLSe
         while True:
             try:
                 logging.debug(str(awaitable_func.__name__) + '함수 시작')
                 # print(awaitable_func.__name__, '함수 시작')
                 await awaitable_func()
+
                 logging.debug(str(awaitable_func.__name__) + '_함수 종료')
+
+                logging.debug('Server_status: ')
+                print(FLSe)
+                print()
             except Exception as e:
                 # logging.info('[E]' , awaitable_func.__name__, e)
                 logging.error('[E]' + str(awaitable_func.__name__) + str(e))
+                logging.debug('[E] Server_status: ')
+                print(FLSe)
+                print()
             await asyncio.sleep(1)
+
     return keeping_state
 
 @async_dec
