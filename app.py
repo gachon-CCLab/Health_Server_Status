@@ -26,6 +26,7 @@ FLSe = ServerStatus()
 @app.get("/FLSe/info")
 def read_status():
     global FLSe
+    logging.info(f'Server_status: {FLSe}')
     return {"Server_Status": FLSe}
 
 
