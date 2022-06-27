@@ -69,9 +69,11 @@ def async_dec(awaitable_func):
                 FLSe.FLSeReady=False
                 logging.info(f'[E] Server_status: {FLSe}')
                 print()
-            await asyncio.sleep(1)
+            await asyncio.sleep(3)
+
+            return FLSe
             
-    return keeping_state, FLSe
+    return keeping_state
 
 @async_dec
 async def fl_server_check():
