@@ -61,14 +61,14 @@ def async_dec(awaitable_func):
 
                 logging.debug(str(awaitable_func.__name__) + '_함수 종료')
 
-                logging.debug('Server_status: ')
-                print(FLSe)
+                logging.info('Server_status: ')
+                logging.info(f'{FLSe}')
                 print()
             except Exception as e:
                 # logging.info('[E]' , awaitable_func.__name__, e)
                 logging.error('[E]' + str(awaitable_func.__name__) + str(e))
-                logging.debug('[E] Server_status: ')
-                print(FLSe)
+                logging.info('[E] Server_status: ')
+                logging.info(f'{FLSe}')
                 print()
             await asyncio.sleep(1)
 
@@ -76,7 +76,7 @@ def async_dec(awaitable_func):
 
 @async_dec
 async def fl_server_check():
-    res = requests.get('http://localhost:8001/FL_ST')
+    res = requests.get('http://10.152.183.249:8001/FL_ST')
     if res.status_code != 200:
         FLSe.FLSeReady=False
     else:
