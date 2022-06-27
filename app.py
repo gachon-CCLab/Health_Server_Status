@@ -76,11 +76,13 @@ def async_dec(awaitable_func):
 
 @async_dec
 async def fl_server_check():
-    res = requests.get('http://10.152.183.249:8001/FL_ST')
+    res = requests.get('http://10.152.183.249:8080')
     if res.status_code != 200:
         FLSe.FLSeReady=False
+        logging.info('fl-server 동작하지 않음.')
     else:
         FLSe.FLSeReady=True
+        logging.info('fl-server 동작함.')
     return FLSe
 
 
