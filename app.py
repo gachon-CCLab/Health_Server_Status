@@ -26,6 +26,12 @@ FLSe = ServerStatus()
 @app.get("/FLSe/info")
 def read_status():
     global FLSe
+    
+    loop = asyncio.get_event_loop()
+    loop.set_debug(True)
+
+    loop.create_task(fl_server_check())
+
     logging.info(f'Server_status: {FLSe}')
     return {"Server_Status": FLSe}
 
