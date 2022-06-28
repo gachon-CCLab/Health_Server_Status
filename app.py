@@ -27,7 +27,7 @@ FLSe = ServerStatus()
 def read_status():
     global FLSe
 
-    fl_server_check() # fl-server 동작 check
+    asyncio.run(fl_server_check()) # fl-server 동작 check
 
     logging.info(f'Server_status: {FLSe}')
     return {"Server_Status": FLSe}
@@ -79,7 +79,7 @@ def update_ready(FLSeReady: bool):
             
 #     return keeping_state
 
-def fl_server_check():
+async def fl_server_check():
     global FLSe
     res = requests.get('http://10.152.183.249:8080')
     logging.info(f'fl_server_check res code: {res.status_code}')
