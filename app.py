@@ -27,7 +27,7 @@ FLSe = ServerStatus()
 def read_status():
     global FLSe
 
-    asyncio.run(fl_server_check()) # fl-server 동작 check
+    # asyncio.run(fl_server_check()) # fl-server 동작 check
 
     logging.info(f'Server_status: {FLSe}')
     return {"Server_Status": FLSe}
