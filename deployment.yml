@@ -3,7 +3,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: fl-server-st-ccl
+  name: fl-server-st
 spec:
   replicas: 1
   selector:
